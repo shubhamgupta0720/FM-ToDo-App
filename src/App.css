@@ -1,4 +1,29 @@
 body{
+  width: 100vw;
+  height: 100vh;
   background-image: url('assets/images/bg-desktop-light.jpg');
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-panel{
+  width: 600px;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-theme{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-theme > h1{
+  font-size: 44px;
+  letter-spacing: 18px;
 }
