@@ -1,3 +1,12 @@
+:root{
+  --VeryLightGray: hsl(0, 0%, 98%);
+  --VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --LightGrayishBlue: hsl(233, 11%, 84%);
+  --DarkGrayishBlue: hsl(236, 9%, 61%);
+  --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+  --White: hsl(0, 0%, 100%);
+}
+
 body{
   width: 100vw;
   height: 100vh;
@@ -9,7 +18,7 @@ body{
 }
 
 .main-panel{
-  width: 600px;
+  width: 540px;
   min-height: 700px;
   display: flex;
   flex-direction: column;
@@ -26,4 +35,29 @@ body{
 .header-theme > h1{
   font-size: 44px;
   letter-spacing: 18px;
+  color: var(--White);
+}
+
+.todo-input{
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  padding-left: 60px;
+  font-size: 18px;
+}
+
+.todo-input::placeholder{
+  color: var(--DarkGrayishBlue);
+}
+
+.todo-list{
+  margin-top: 20px;
+  width: 100%;
+  background-color: var(--White);
+}
+
+.todo-item{
+  height: 10px;
 }
