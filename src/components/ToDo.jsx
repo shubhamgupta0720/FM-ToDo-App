@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import moon from "../assets/images/icon-moon.svg"
 import ToDoItems from "./ToDoItems";
+import ToDoToggle from "./ToDoToggle";
 
 let count = 0;
 
@@ -36,11 +37,19 @@ function ToDo(){
                 <h1>TODO</h1>
                 <img src={moon} alt="" />
             </div>
+            <div className="checkbox"></div>
             <input onKeyDown={(event) => {addToDo(event)}} ref={inputRef} className="todo-input" type="text" placeholder="Create a new todo.."/>
             <div className="todo-list">
                 {todos.map((item, index) => {
-                    return <ToDoItems key={index} setTodos = {setTodos} no = {item.no} display = {item.display} text = {item.text}/>
-                })}
+                    return( 
+                        <>
+                    <ToDoItems key={index} setTodos = {setTodos} no = {item.no} display = {item.display} text = {item.text}/>
+                        <hr />
+                        </>
+                )
+                })
+                }
+                {/* <ToDoToggle/> */}
             </div>
         </div>
     )
