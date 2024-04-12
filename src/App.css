@@ -58,6 +58,7 @@ body{
   border: none;
   outline: none;
   padding-left: 68px;
+  padding-top: 4px;
   font-size: 18px;
 }
 
@@ -70,15 +71,17 @@ body{
   width: 100%;
   background-color: var(--White);
   border-radius: 6px;
-  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 .todo-item{
-  padding: 34px 20px 34px 22px;
+  padding: 38px 20px 30px 22px;
   height: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 hr{
@@ -99,12 +102,17 @@ hr{
   background-color: white;
 }
 
+.task-checkbox:hover{
+  border: linear-gradient(to bottom right, hsl(192, 100%, 67%) , hsl(280, 87%, 65%)) 1;
+}
+
 .todo-task{
   padding-left: 22px;
 }
 
 .line-through{
-  text-decoration: line-through solid #ADADAD 3px;
+  color: var(--LightGrayishBlue);
+  text-decoration: line-through solid var(--LightGrayishBlue) 1px;
 }
 
 .checked{
@@ -112,6 +120,25 @@ hr{
   justify-content: center;
   align-items: center;
   background: linear-gradient(to bottom right, hsl(192, 100%, 67%) , hsl(280, 87%, 65%));
+}
+
+.toggle-bar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--DarkGrayishBlue);
+  font-size: 14px;
+  padding: 16px 0px;
+}
+
+.all-active-completed{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all-active-completed > p{
+  margin: 0px 8px;
 }
 
 @media (max-width: 480px){
@@ -142,5 +169,13 @@ hr{
   .todo-input{
     height: 56px;
     font-size: 16px;
+  }
+
+  .todo-item{
+    padding: 28px 20px 28px 22px;
+    height: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

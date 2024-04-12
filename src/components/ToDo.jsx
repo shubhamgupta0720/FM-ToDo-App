@@ -3,11 +3,10 @@ import moon from "../assets/images/icon-moon.svg"
 import ToDoItems from "./ToDoItems";
 import ToDoToggle from "./ToDoToggle";
 
-let count = 0;
-
 function ToDo(){
 
     const [todos, setTodos] = useState([]);
+    let [count, setCount] = useState(0);
     const inputRef = useRef(null);
 
     const addToDo = (event) => {
@@ -21,13 +20,12 @@ function ToDo(){
 
     useEffect(() => {
         setTodos(JSON.parse(localStorage.getItem("todos")));
-        count = localStorage.getItem("todos_count");
     }, []);
 
     useEffect(() => {
         setTimeout(() => {
-            console.log(todos);
             localStorage.setItem("todos", JSON.stringify(todos));
+            setCount((JSON.parse(localStorage.getItem("todos")).filter((todo) => todo.display === "")).length)
         }, 100)
     }, [todos])
 
@@ -49,7 +47,7 @@ function ToDo(){
                 )
                 })
                 }
-                {/* <ToDoToggle/> */}
+                <ToDoToggle count = {count}/>
             </div>
         </div>
     )

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import cross from "../assets/images/icon-cross.svg"
 import check from "../assets/images/icon-check.svg"
 
 function ToDoItems({no, display, text, setTodos}){
+
+    const [over, setOver] = useState(false);
 
     const deleteToDo = (no) => {
         let data = JSON.parse(localStorage.getItem("todos"));
@@ -28,7 +30,11 @@ function ToDoItems({no, display, text, setTodos}){
 
     return (
         <>
-            <div className="todo-item" >
+            <div onMouseOver={() => {
+                    setOver(true);
+                }}
+                onMouseOut={() => setOver(false)}
+                 className="todo-item" >
                 <div className="check-task" onClick={() => {toggle(no)}}>
                     {display === "" ? <div className="task-checkbox"></div> : <div className="task-checkbox checked">
                             <img src={check} alt="" />
@@ -37,7 +43,7 @@ function ToDoItems({no, display, text, setTodos}){
                 </div>
                 <img onClick={() => {
                     deleteToDo(no)
-                }} src={cross} alt="" />
+                }} src={over ? cross : ""} alt="" />
             </div>
         </>
     )
