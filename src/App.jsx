@@ -1,12 +1,13 @@
 import './App.css'
 import ToDo from './components/ToDo'
+import ToggleContextProvider from './assets/context/ToggleContextProvider'
 
 function App() {
 
   return (
-    <>
-      <ToDo />
-    </>
+      <ToggleContextProvider>
+        <ToDo />
+      </ToggleContextProvider>
   )
 }
 

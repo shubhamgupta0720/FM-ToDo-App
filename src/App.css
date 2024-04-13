@@ -131,6 +131,10 @@ hr{
   padding: 16px 0px;
 }
 
+.toggle-bar > p:nth-child(3){
+  cursor: pointer;
+}
+
 .all-active-completed{
   display: flex;
   justify-content: space-between;
@@ -139,6 +143,11 @@ hr{
 
 .all-active-completed > p{
   margin: 0px 8px;
+  cursor: pointer;
+}
+
+.all-active-completed-mobile{
+  display: none;
 }
 
 @media (max-width: 480px){
@@ -177,5 +186,24 @@ hr{
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .all-active-completed{
+    display: none;
+  }
+
+  .all-active-completed-mobile{
+    display: block;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .all-active-completed-mobile > p{
+    margin: 0px 8px;
+    color: var(--DarkGrayishBlue);
+    font-size: 14px;
+    padding: 16px 0px;
   }
 }
