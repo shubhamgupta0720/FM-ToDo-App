@@ -9,7 +9,7 @@ function ToDo(){
     const [todos, setTodos] = useState([]);
     const [filteredTodos, setFilteredTodos] = useState([]);
     let [count, setCount] = useState(0);
-    const {todoFilter} = useContext(ToggleContext);
+    const {todoFilter, setToDoFilter} = useContext(ToggleContext);
     const inputRef = useRef(null);
 
     const addToDo = (event) => {
@@ -48,6 +48,7 @@ function ToDo(){
             const filteredData = todos.filter((todo) => todo.display === "");
             setFilteredTodos(filteredData);
             setTodos(filteredData);
+            setToDoFilter("All");
         }
       }, [todoFilter, todos]);
 
