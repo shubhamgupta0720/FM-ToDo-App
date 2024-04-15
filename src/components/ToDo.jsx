@@ -3,6 +3,8 @@ import moon from "../assets/images/icon-moon.svg"
 import ToDoItems from "./ToDoItems";
 import ToggleContext from "../assets/context/ToggleContext";
 import ToDoToggle from "./ToDoToggle";
+import ThemeContext from "../assets/context/ThemeContext";
+import ThemeContextProvider from "../assets/context/ThemeContextProvider";
 
 function ToDo(){
 
@@ -10,6 +12,7 @@ function ToDo(){
     const [filteredTodos, setFilteredTodos] = useState([]);
     let [count, setCount] = useState(0);
     const {todoFilter, setToDoFilter} = useContext(ToggleContext);
+    const {isDarkTheme, setIsDarkTheme} = useContext(ThemeContext)
     const inputRef = useRef(null);
 
     const addToDo = (event) => {
@@ -56,10 +59,12 @@ function ToDo(){
         <div className="main-panel">
             <div className="header-theme">
                 <h1>TODO</h1>
-                <img src={moon} alt="" />
+                <img onClick={() => {
+                    setIsDarkTheme(!isDarkTheme)
+                }} src={moon} alt="" />
             </div>
             <div className="checkbox"></div>
-            <input onKeyDown={(event) => {addToDo(event)}} ref={inputRef} className="todo-input" type="text" placeholder="Create a new todo.."/>
+            <input onKeyDown={(event) => {addToDo(event)}} ref={inputRef} className={isDarkTheme ? "todo-input input-dark" : "todo-input"} type="text" placeholder="Create a new todo.."/>
             <div className="todo-list">
                 {
                 filteredTodos.map((item, index) => {

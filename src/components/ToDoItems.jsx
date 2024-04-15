@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import cross from "../assets/images/icon-cross.svg"
 import check from "../assets/images/icon-check.svg"
+import ThemeContext from "../assets/context/ThemeContext";
 
 function ToDoItems({no, display, text, setTodos}){
 
     const [over, setOver] = useState(false);
+    const {isDarkTheme, setIsDarkTheme} = useContext(ThemeContext)
 
     const deleteToDo = (no) => {
         let data = JSON.parse(localStorage.getItem("todos"));
@@ -29,12 +31,11 @@ function ToDoItems({no, display, text, setTodos}){
     }
 
     return (
-        <>
             <div onMouseOver={() => {
                     setOver(true);
                 }}
                 onMouseOut={() => setOver(false)}
-                 className="todo-item" >
+                 className={isDarkTheme ? "todo-item input-dark" : "todo-item"} >
                 <div className="check-task" onClick={() => {toggle(no)}}>
                     {display === "" ? <div className="task-checkbox"></div> : <div className="task-checkbox checked">
                             <img src={check} alt="" />
@@ -45,7 +46,6 @@ function ToDoItems({no, display, text, setTodos}){
                     deleteToDo(no)
                 }} src={over ? cross : ""} alt="" />
             </div>
-        </>
     )
 }
 
